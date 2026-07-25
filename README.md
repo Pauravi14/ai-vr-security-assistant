@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI-Powered VR Security Assistant
 
-## Getting Started
+Portfolio demo for **adaptive authentication in VR**: session context signals are scored for risk, then the app recommends a security action (continue, re-auth, or lock).
 
-First, run the development server:
+Inspired by adaptive authentication concepts from VR security research. This is an **independent demo** — it does not contain private university project code.
+
+**Live idea:** change the session inputs → watch risk score, level, explanation, and recommended action update instantly.
+
+---
+
+## Why this project
+
+VR sessions often stay authenticated for a long time. Context can change (network, device proximity, time since last auth). This demo shows how a lightweight **risk engine** can drive **adaptive** security decisions without blocking every interaction.
+
+Useful talking points for recruiters:
+- Context-based risk scoring
+- Clear decision thresholds (Low → Critical)
+- Explainable recommendations (not a black box)
+
+---
+
+## Features
+
+- Interactive **session inputs**
+  - Trusted phone via Bluetooth (connected / disconnected)
+  - Network type (trusted / public / unknown)
+  - Login time behavior (normal / unusual / late-night)
+  - Minutes since last authentication
+- Live **risk score** (0–100) with level: Low · Medium · High · Critical
+- **Recommended action** for the VR session
+- Human-readable **explanation** of contributing signals
+
+---
+
+## Risk model (simplified)
+
+| Signal | Example impact |
+|--------|----------------|
+| Trusted phone disconnected | +25 |
+| Public Wi-Fi | +25 |
+| Unknown network | +30 |
+| Unusual / late-night login | +15 / +25 |
+| Last auth > 1h / > 3h | +15 / +15 more |
+
+| Score | Level | Action |
+|------:|-------|--------|
+| 0–30 | Low | Continue the VR session |
+| 31–60 | Medium | Lightweight re-authentication |
+| 61–80 | High | Stronger re-authentication |
+| 81–100 | Critical | Lock the VR session |
+
+---
+
+## Tech stack
+
+- **Next.js** (App Router) · **React** · **TypeScript**
+- **Tailwind CSS**
+
+---
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build
+npm start       # run production server
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+  page.tsx      # Risk UI + scoring logic
+  layout.tsx    # App shell + metadata
+  globals.css   # Styles
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Related work
 
-## Deploy on Vercel
+On my CV this connects to **ADA-VR** (adaptive authentication in VR). This repo is a public, recruiter-friendly portfolio slice of those ideas.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Author
+
+**Pauravi Pardeshi**  
+[GitHub](https://github.com/Pauravi14) · [LinkedIn](https://linkedin.com/in/pauravi-pardeshi) · [pauravipardeshi14@gmail.com](mailto:pauravipardeshi14@gmail.com)
