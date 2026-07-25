@@ -4,7 +4,9 @@ Portfolio demo for **adaptive authentication in VR**: session context signals ar
 
 Inspired by adaptive authentication concepts from VR security research. This is an **independent demo** — it does not contain private university project code.
 
-**Live idea:** change the session inputs → watch risk score, level, explanation, and recommended action update instantly.
+**Live demo:** [https://ai-vr-security-assistant.vercel.app](https://ai-vr-security-assistant.vercel.app)
+
+Change the session inputs → watch risk score, level, explanation, and recommended action update instantly.
 
 ---
 
