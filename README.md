@@ -91,9 +91,3 @@ app/
 
 On my CV this connects to **ADA-VR** (adaptive authentication in VR). This repo is a public, recruiter-friendly portfolio slice of those ideas.
 
----
-
-## Author
-
-**Pauravi Pardeshi**  
-[GitHub](https://github.com/Pauravi14) · [LinkedIn](https://linkedin.com/in/pauravi-pardeshi) · [pauravipardeshi14@gmail.com](mailto:pauravipardeshi14@gmail.com)
